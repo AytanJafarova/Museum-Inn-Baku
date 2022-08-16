@@ -1,0 +1,26 @@
+C:\Users\HP\source\repos\MuseumInnBaku\bin\Debug\MuseumInnBaku.exe.config
+C:\Users\HP\source\repos\MuseumInnBaku\bin\Debug\MuseumInnBaku.exe
+C:\Users\HP\source\repos\MuseumInnBaku\bin\Debug\MuseumInnBaku.pdb
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.Form1.resources
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.Properties.Resources.resources
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.csproj.GenerateResource.cache
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.exe
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.pdb
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.UserSignUpForm.resources
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.SystemGirish.resources
+C:\Users\HP\source\repos\MuseumInnBaku\obj\Debug\MuseumInnBaku.UserEnteredForm.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\bin\Debug\MuseumInnBaku.exe.config
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\bin\Debug\MuseumInnBaku.exe
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\bin\Debug\MuseumInnBaku.pdb
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.csprojAssemblyReference.cache
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.Form1.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.Properties.Resources.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.SystemGirish.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.UserEnteredForm.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.UserSignUpForm.resources
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.csproj.GenerateResource.cache
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.exe
+C:\Users\HP\OneDrive - Azerbaijan State Oil and Industry University\Desktop\MuseumInnBaku\MuseumInnBaku\obj\Debug\MuseumInnBaku.pdb

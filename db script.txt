@@ -1,0 +1,800 @@
+USE [master]
+GO
+/****** Object:  Database [DB_MuseumInnBakuApp]    Script Date: 20.06.2021 18:26:03 ******/
+CREATE DATABASE [DB_MuseumInnBakuApp]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'DB_MuseumInnBakuApp', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\DB_MuseumInnBakuApp.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'DB_MuseumInnBakuApp_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\DB_MuseumInnBakuApp_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [DB_MuseumInnBakuApp].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET  MULTI_USER 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET QUERY_STORE = OFF
+GO
+USE [DB_MuseumInnBakuApp]
+GO
+/****** Object:  Table [dbo].[Tbl_Category]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Category](
+	[CategoryID] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryName] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Customer]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Customer](
+	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerName] [varchar](30) NULL,
+	[CustomerSurname] [varchar](30) NULL,
+	[CardNumber] [int] NULL,
+	[PhoneNumber] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Employee]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Employee](
+	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeName] [varchar](30) NULL,
+	[EmployeeSurname] [varchar](30) NULL,
+	[EmployeeSalary] [int] NULL,
+	[EmployeeDepartment] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EmployeeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Order]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Order](
+	[OrderID] [int] IDENTITY(1,1) NOT NULL,
+	[OrderName] [varchar](30) NULL,
+	[Address] [varchar](30) NULL,
+	[OrderDate] [date] NULL,
+	[ProductID] [int] NULL,
+	[CustomerID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Product]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Product](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [varchar](30) NULL,
+	[ProductPrice] [float] NULL,
+	[ProductCount] [int] NULL,
+	[CategoryID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_User]    Script Date: 20.06.2021 18:26:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_User](
+	[Username] [varchar](30) NULL,
+	[Password] [varchar](30) NULL,
+	[CustomerID] [int] NULL
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Category] ON 
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (1, N'Pizzas')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (2, N'Hot Meals')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (3, N'Salads')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (4, N'Soups')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (5, N'Cool Drinks')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (6, N'Hot Drinks ')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (7, N'Plov')
+GO
+INSERT [dbo].[Tbl_Category] ([CategoryID], [CategoryName]) VALUES (8, N'Desserts')
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Category] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Customer] ON 
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (1, N'Ayten', N'Ceferova', 111111, 554032201)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (2, N'Nadir', N'Ceferov', 222222, 554032202)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (3, N'Leyla', N'Bayramova', 333333, 554032203)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (4, N'Ferid', N'Kazimov', 444444, 554032204)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (5, N'Aysu', N'Kazimova', 555555, 554032205)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (6, N'Gulay', N'Eliyeva', 666666, 554032206)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (7, N'Ayshen', N'Ceferova', 777777, 554032207)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (8, N'Rubabe', N'Eliyeva', 88888888, 554032208)
+GO
+INSERT [dbo].[Tbl_Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CardNumber], [PhoneNumber]) VALUES (1002, N'Sedaqet', N'Ceferova', 77777777, 554032207)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Customer] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Employee] ON 
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (1, N'Ulker', N'Aslanova', 500, N'Kitchen')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (2, N'Saleh', N'Abbas', 400, N'Floor')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (3, N'Movsum', N'Agakishiyev', 800, N'Managerial')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (4, N'Kenan', N'Celebi', 400, N'Floor')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (5, N'Elshen', N'Dunyamaliyev', 600, N'Delivery')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (6, N'Mehemmed', N'Ekberov', 600, N'Delivery')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (7, N'Ziya', N'Eliyev', 450, N'Floor')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (8, N'Murad', N'Guleliyev', 700, N'Delivery')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (9, N'Elvin', N'Hemzeyev', 1200, N'Accountant')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (10, N'Tebriz', N'Hesenli', 700, N'Kitchen')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (11, N'Cavid', N'Hesenov', 700, N'Kitchen')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (12, N'Aysu', N'Kazimova', 500, N'Floor')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (13, N'Cavidan', N'Kerimli', 800, N'Managerial')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (14, N'Fuad', N'Mahmudov', 650, N'Delivery')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (15, N'Nurlan', N'Nazimli', 900, N'Managerial')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (16, N'Kenan', N'Nuhbabali', 300, N'Floor')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (17, N'Ayxan', N'Penahli', 600, N'Delivery')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (18, N'Evez', N'Qarayev', 700, N'Bar')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (19, N'Murad', N'Qedirov', 700, N'Bar')
+GO
+INSERT [dbo].[Tbl_Employee] ([EmployeeID], [EmployeeName], [EmployeeSurname], [EmployeeSalary], [EmployeeDepartment]) VALUES (1002, N'Rubabe', N'Shabanova', 1200, N'Accountant')
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Employee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Order] ON 
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (1, N'Ice Cream', N'28May avenue', CAST(N'2021-06-19' AS Date), 78, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (2, N'Diabola', N'28May avenue', CAST(N'2021-06-19' AS Date), 2, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (3, N'Ice Cream', N'Ganjlik', CAST(N'2021-06-19' AS Date), 78, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (6, N'Tiramisu', N'Ganja', CAST(N'2021-06-19' AS Date), 64, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (7, N'Tiramisu', N'Ganja', CAST(N'2021-06-19' AS Date), 64, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (8, N'Coconut desserts', N'Ganja', CAST(N'2021-06-19' AS Date), 59, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (9, N'Shah plov', N'Baku State University', CAST(N'2021-06-19' AS Date), 54, 2)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (10, N'Tomato soup', N'ASOIU', CAST(N'2021-06-19' AS Date), 29, 4)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (11, N'Green tea', N'Baku Medical Plaza', CAST(N'2021-06-19' AS Date), 44, 5)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (12, N'Dosheme plov', N'Sumgayit', CAST(N'2021-06-19' AS Date), 55, 4)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (13, N'Capuccino', N'Sumgayit', CAST(N'2021-06-19' AS Date), 50, 4)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (14, N'Tiramisu', N'Sumgayit', CAST(N'2021-06-19' AS Date), 64, 4)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (15, N'Fried fish', N'Kaspi course', CAST(N'2021-06-19' AS Date), 13, 6)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (16, N'Meat langet', N'Kaspi course', CAST(N'2021-06-19' AS Date), 11, 6)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (17, N'Kudryash', N'Kaspi course', CAST(N'2021-06-19' AS Date), 65, 6)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (18, N'Lilac tea', N'School 11', CAST(N'2021-06-19' AS Date), 45, 3)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (19, N'Cola', N'School 12', CAST(N'2021-06-19' AS Date), 34, 3)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (20, N'Fanta', N'School 12', CAST(N'2021-06-19' AS Date), 35, 3)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (21, N'Latte', N'Kaspi course', CAST(N'2021-06-19' AS Date), 51, 6)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (22, N'Turkish coffee', N'Adpu', CAST(N'2021-06-19' AS Date), 52, 8)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (23, N'Albali plov', N'Adpu', CAST(N'2021-06-19' AS Date), 57, 8)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (24, N'Ice Tea', N'Ganja', CAST(N'2021-06-19' AS Date), 41, 2)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (25, N'Hot chocolate', N'Medical University', CAST(N'2021-06-19' AS Date), 46, 5)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (26, N'Pepper stake', N'Ganja', CAST(N'2021-06-19' AS Date), 17, 1002)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (27, N'Chicken salad', N'Ganja', CAST(N'2021-06-19' AS Date), 24, 1002)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (28, N'Four seasons', N'Medical University', CAST(N'2021-06-19' AS Date), 1, 1)
+GO
+INSERT [dbo].[Tbl_Order] ([OrderID], [OrderName], [Address], [OrderDate], [ProductID], [CustomerID]) VALUES (1008, N'Cola', N'Museum Inn Baku restaurant', CAST(N'2021-06-20' AS Date), 34, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Order] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Product] ON 
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (1, N'Four seasons', 11.5, 3, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (2, N'Diabola', 12.5, 4, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (3, N'Salsiccia', 11.5, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (4, N'Chicken barbecue', 10.8, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (5, N'Funghi con pollo', 11.5, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (6, N'Pollo al pomodoro', 11.2, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (7, N'Margheritta', 8.5, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (8, N'Caesar', 15, 5, 1)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (9, N'Chicken langet', 11, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (10, N'Tabaka', 16, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (11, N'Meat langet', 18, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (12, N'Chicken monastr', 15, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (13, N'Fried fish', 50, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (14, N'Dolma', 15, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (15, N'Tomato and egg', 10, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (16, N'Strogonoff beef', 18, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (17, N'Pepper stake', 26.5, 3, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (18, N'Chicken schnitzel', 12, 5, 2)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (19, N'Sezar salad', 10.5, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (20, N'Fish salad', 8.9, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (21, N'Greece salad', 7.2, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (22, N'Salad with golden fish', 13, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (23, N'Vegetable salad', 8, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (24, N'Chicken salad', 8, 2, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (25, N'Chicken Bluz salad', 6.2, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (26, N'Cheese salad', 7, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (27, N'Potato salad', 5.5, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (28, N'Kinoa salad', 11, 5, 3)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (29, N'Tomato soup', 5.5, 4, 4)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (30, N'Mushroom soup', 3.5, 5, 4)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (31, N'Lentil soup', 3, 5, 4)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (32, N'Chicken soup', 3.5, 5, 4)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (33, N'Dushbere', 4, 5, 4)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (34, N'Cola', 2, 6, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (35, N'Fanta', 2, 3, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (36, N'Sprite', 2, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (37, N'Pepsi', 2, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (38, N'Red Bull', 7, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (39, N'Natural juice', 3, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (40, N'Water', 1, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (41, N'Ice Tea', 4, 3, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (42, N'Lemonad', 6, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (43, N'Cocktail', 9, 5, 5)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (44, N'Green tea', 4.8, 7, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (45, N'Lilac tea', 4.8, 4, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (46, N'Hot chocolate', 4.8, 3, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (47, N'Apple tea', 4.8, 5, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (48, N'Black tea', 4.8, 5, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (49, N'Espresso', 5, 5, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (50, N'Capuccino', 6, 3, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (51, N'Latte', 7, 3, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (52, N'Turkish coffee', 5, 3, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (53, N'Americano', 5, 5, 6)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (54, N'Shah plov', 35, 5, 7)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (55, N'Dosheme plov', 16, 5, 7)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (56, N'Mash plov', 13, 5, 7)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (57, N'Albali plov', 18, 3, 7)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (58, N'Fisincan plov', 19, 5, 7)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (59, N'Coconut desserts', 6.5, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (60, N'Strawberry desserts', 6.5, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (61, N'Sunny cake', 6.5, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (62, N'Sacher', 7, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (63, N'Mango cheesecake', 7.9, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (64, N'Tiramisu', 7.4, 10, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (65, N'Kudryash', 6, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (66, N'Pakhlava', 3.5, 5, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (78, N'Ice Cream', 7.5, 14, 8)
+GO
+INSERT [dbo].[Tbl_Product] ([ProductID], [ProductName], [ProductPrice], [ProductCount], [CategoryID]) VALUES (1002, N'Choco Cream', 5, 0, 8)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Product] OFF
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'aytanjfrv', N'aytan123', 1)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'nadirjfrv', N'nadir123', 2)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'leylabyrm', N'leyla123', 3)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'faridkzm', N'farid123', 4)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'aysukzm', N'aysu123', 5)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'gulayll', N'gulay123', 6)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'ayshenjfrv', N'ayshen123', 7)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N's.cefer', N'sedaqet123', 1002)
+GO
+INSERT [dbo].[Tbl_User] ([Username], [Password], [CustomerID]) VALUES (N'rubiAli', N'rubi123', 8)
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__Tbl_User__536C85E47F58C4A0]    Script Date: 20.06.2021 18:26:03 ******/
+ALTER TABLE [dbo].[Tbl_User] ADD UNIQUE NONCLUSTERED 
+(
+	[Username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [UQ__Tbl_User__A4AE64B9EA76BD10]    Script Date: 20.06.2021 18:26:04 ******/
+ALTER TABLE [dbo].[Tbl_User] ADD UNIQUE NONCLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Tbl_Order]  WITH CHECK ADD FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Tbl_Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Tbl_Order]  WITH CHECK ADD FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Tbl_Product] ([ProductID])
+GO
+ALTER TABLE [dbo].[Tbl_Product]  WITH CHECK ADD FOREIGN KEY([CategoryID])
+REFERENCES [dbo].[Tbl_Category] ([CategoryID])
+GO
+ALTER TABLE [dbo].[Tbl_User]  WITH CHECK ADD FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Tbl_Customer] ([CustomerID])
+GO
+/****** Object:  StoredProcedure [dbo].[GetCategID]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[GetCategID]
+(@CategName varchar(30))
+as begin
+select CategoryID from Tbl_Category where CategoryName=@CategName
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spAddCategroy]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spAddCategroy]
+(
+
+@CategoryName varchar(30)
+)
+as
+begin
+insert into Tbl_Category values(@CategoryName)
+
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spAddEmployee]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spAddEmployee]
+(
+@Name varchar(30),
+@Surname varchar(30),
+@Salary int,
+@DepartmentName varchar(30)
+)
+as begin
+insert into Tbl_Employee values (@Name,@Surname,@Salary,@DepartmentName)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spAddNewUser]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[spAddNewUser]
+(
+@key int,
+@username varchar(30),
+@password varchar(30),
+@name varchar(30),
+@surname varchar(30),
+@cardNumber int,
+@phoneNumber int
+)
+as
+begin
+insert into Tbl_Customer(CustomerName,CustomerSurname,CardNumber,PhoneNumber)
+	values (@name,@surname,@cardNumber,@phoneNumber)
+select @key=@@IDENTITY
+insert into Tbl_User(Username,Password,CustomerID) values (@username,@password,@key)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spAddOrder]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spAddOrder]
+(
+@orderName varchar(30),
+@address varchar(30),
+@getCustId int
+)
+as
+begin
+insert into Tbl_Order (OrderName,Address,OrderDate,ProductID,CustomerID) values
+(@orderName,@address,GETDATE(),(select ProductID from Tbl_Product where ProductName=@orderName),
+@getCustId )
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spAddProduct]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spAddProduct]
+(
+@Name varchar(30),
+@Price float,
+@Count int,
+@CategID int
+)
+as begin
+insert into Tbl_Product values (@Name,@Price,@Count,@CategID)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spChangeProductInfo]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spChangeProductInfo]
+(
+@orderName varchar(30),
+@countOrder int
+)
+as
+begin
+update Tbl_Product set ProductCount=ProductCount-@countOrder where ProductName=@orderName
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spDeleteCategory]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spDeleteCategory]
+(@categID int)
+as
+begin
+delete from Tbl_Category where CategoryID=@categID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spDeleteEmployee]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spDeleteEmployee]
+(@empID int)
+as
+begin
+delete from Tbl_Employee where EmployeeID=@empID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spDeleteProduct]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spDeleteProduct]
+(@ProdID int)
+as
+begin
+delete from Tbl_Product where ProductID=@ProdID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spGetByCategName]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spGetByCategName]
+(
+@categName varchar(30)
+)
+as
+begin
+select ProductName,ProductPrice,ProductCount 
+from Tbl_Product p1 inner join Tbl_Category p2 
+on p1.CategoryID=p2.CategoryID where CategoryName=@categName and ProductCount>0
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spGetCategName]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spGetCategName]
+(@CategID int)
+as
+begin
+select CategoryName from Tbl_Category where CategoryID=@CategID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spLoginControl]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[spLoginControl]
+(
+@Username varchar(30),
+@Password varchar(30)
+)
+as
+begin
+select count(*) from Tbl_User where Username=@Username and Password=@Password
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spNewOrder]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spNewOrder]
+(
+@orderName varchar(30),
+@address varchar(30),
+@getCustId int,
+@countOrder int,
+@userName varchar(30),
+@payment float
+)
+as
+begin
+insert into Tbl_Order (OrderName,Address,OrderDate,ProductID,CustomerID) values
+(@orderName,@address,GETDATE(),(select ProductID from Tbl_Product where ProductName=@orderName),
+(select CustomerID from Tbl_User where Username=@userName) )
+update Tbl_Product set ProductCount=ProductCount-@countOrder where ProductName=@orderName
+set @payment=@countOrder*(select ProductPrice from Tbl_Product where ProductName=@orderName)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spOrder]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spOrder]
+(
+@orderName varchar(30),
+@address varchar(30),
+@getCustId int,
+@countOrder int,
+@userName varchar(30)
+)
+as
+begin
+insert into Tbl_Order (OrderName,Address,OrderDate,ProductID,CustomerID) values
+(@orderName,@address,GETDATE(),(select ProductID from Tbl_Product where ProductName=@orderName),
+(select CustomerID from Tbl_User where Username=@userName) )
+update Tbl_Product set ProductCount=ProductCount-@countOrder where ProductName=@orderName
+
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spUpdateCateg]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spUpdateCateg]
+(
+@CategID int,
+@CategName varchar(30)
+)
+as
+begin
+update Tbl_Category set CategoryName=@CategName
+where CategoryID=@CategID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spUpdateEmp]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[spUpdateEmp]
+(
+@EmpID int,
+@Name varchar(30),
+@Surname varchar(30),
+@Salary int,
+@DepartmentName varchar(30)
+)
+as
+begin
+update Tbl_Employee set EmployeeName=@Name, EmployeeSurname=@Surname, EmployeeSalary=@Salary, EmployeeDepartment=@DepartmentName
+where EmployeeID=@EmpID
+end
+GO
+/****** Object:  StoredProcedure [dbo].[spUpdateProduct]    Script Date: 20.06.2021 18:26:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spUpdateProduct]
+(
+@prodId int,
+@prodName varchar(30),
+@prodPrice float,
+@prodCount int
+)
+as
+begin
+update Tbl_Product set ProductName=@prodName,ProductPrice=@prodPrice,ProductCount=@prodCount	
+						where ProductID=@prodId
+end
+GO
+USE [master]
+GO
+ALTER DATABASE [DB_MuseumInnBakuApp] SET  READ_WRITE 
+GO

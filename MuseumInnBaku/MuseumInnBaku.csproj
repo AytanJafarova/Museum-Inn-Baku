@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7778511-151B-4C55-903C-39E8636043E3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MuseumInnBaku</RootNamespace>
+    <AssemblyName>MuseumInnBaku</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCategory.cs" />
+    <Compile Include="AddEmp.cs" />
+    <Compile Include="AddNewProduct.cs" />
+    <Compile Include="AddNewUser.cs" />
+    <Compile Include="AddOrder.cs" />
+    <Compile Include="BusinessLogicLayer.cs" />
+    <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="DB_MuseumInnBakuAppDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuAppDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuAppDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_MuseumInnBakuDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_MuseumInnBakuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemGirish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemGirish.Designer.cs">
+      <DependentUpon>SystemGirish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserEnteredForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserEnteredForm.Designer.cs">
+      <DependentUpon>UserEnteredForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.cs" />
+    <Compile Include="UserSignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSignUpForm.Designer.cs">
+      <DependentUpon>UserSignUpForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SystemGirish.resx">
+      <DependentUpon>SystemGirish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEnteredForm.resx">
+      <DependentUpon>UserEnteredForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSignUpForm.resx">
+      <DependentUpon>UserSignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DB_MuseumInnBakuAppDataSet.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet1.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet1.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet10.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet10.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet11.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet11.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet12.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet12.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet13.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet13.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet14.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet14.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet15.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet15.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet2.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet2.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet3.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet3.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet4.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet4.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet5.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet5.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet6.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet6.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet7.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet7.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet8.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet8.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet9.xsc">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuAppDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuAppDataSet9.xss">
+      <DependentUpon>DB_MuseumInnBakuAppDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuDataSet.xsc">
+      <DependentUpon>DB_MuseumInnBakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_MuseumInnBakuDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_MuseumInnBakuDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_MuseumInnBakuDataSet.xss">
+      <DependentUpon>DB_MuseumInnBakuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
